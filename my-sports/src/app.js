@@ -13,13 +13,44 @@ class App extends Component {
 
   config = {
     pages: [
-      'pages/index/index'
+      'pages/child/index',
+      'pages/logs/index',
+      'pages/index/index',
+      'pages/home/index'
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
+    },
+    tabBar:{
+      list:[
+        {
+          pagePath: "pages/index/index",
+          text: "首页",
+          iconPath: "images/dog1.png",
+          selectedIconPath: "images/dog1.png"
+        },
+        {
+          pagePath: "pages/logs/index",
+          text: "热销狗狗",
+          iconPath: "images/dog2.png",
+          selectedIconPath: "images/dog2.png"
+        },
+        {
+          pagePath: "pages/child/index",
+          text: "新品狗崽子",
+          iconPath: "images/dog4.png",
+          selectedIconPath: "images/dog4.png"
+        },
+        {
+          pagePath: "pages/home/index",
+          text: "我的",
+          iconPath: "images/dog5.png",
+          selectedIconPath: "images/dog5.png"
+        }
+      ]
     }
   }
 

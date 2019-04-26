@@ -13,10 +13,12 @@ class App extends Component {
 
   config = {
     pages: [
-      'pages/child/index',
-      'pages/logs/index',
       'pages/index/index',
-      'pages/home/index'
+      'pages/shops/index',
+      'pages/logs/index',
+      'pages/collect/index',
+      'pages/child/index',
+      'pages/buys/index'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -34,21 +36,15 @@ class App extends Component {
         },
         {
           pagePath: "pages/logs/index",
-          text: "热销狗狗",
+          text: "新品狗崽子",
           iconPath: "images/dog2.png",
           selectedIconPath: "images/dog2.png"
         },
         {
           pagePath: "pages/child/index",
-          text: "新品狗崽子",
+          text: "个人中心",
           iconPath: "images/dog4.png",
           selectedIconPath: "images/dog4.png"
-        },
-        {
-          pagePath: "pages/home/index",
-          text: "我的",
-          iconPath: "images/dog5.png",
-          selectedIconPath: "images/dog5.png"
         }
       ]
     }

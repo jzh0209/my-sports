@@ -26,7 +26,7 @@ export default class Index extends Component {
             return item
           }
         })
-        console.log(arr)
+        // console.log(arr)
         this.setState({
           arr:arr
         })
@@ -67,7 +67,7 @@ export default class Index extends Component {
                           <View className='price'>{item.price}</View>
                         </View>
                         <View className='oright'>
-                          <View className='coll'>{item.like}</View>
+                          <View className='coll' onClick={this.coll.bind(this,item._id,item.like,index)}>{item.like}</View>
                         </View>
                       </View>
                     </View>
@@ -76,5 +76,29 @@ export default class Index extends Component {
         </View>
       </View>
     )
+  }
+
+  //点击取消收藏
+  coll(id,like,ind){
+    this.state.arr.splice(ind,1)
+    this.setState({
+      arr:this.state.arr
+    })
+    Taro.request({
+      url: 'http://localhost:3000/upDatas',
+      data: {
+        _id:id,
+        like:like
+      },
+      header: {'content-type':'application/json'},
+      method: 'POST',
+      dataType: 'json',
+      responseType: 'text',
+      success: (result)=>{
+        console.log(result)
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
   }
 }

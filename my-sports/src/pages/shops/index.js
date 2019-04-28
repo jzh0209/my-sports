@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text, Image, Input, Button, Swiper, SwiperItem } from '@tarojs/components'
+import { View, Text, Image, Input, Button, ScrollView } from '@tarojs/components'
 import './index.css'
 
 export default class Index extends Component {
@@ -56,7 +56,7 @@ export default class Index extends Component {
     return (
       <View className='wrap'>
         <View className='box'>
-          <View className='list'>
+          <ScrollView scrollY="true" style="height:1100rpx;" className='list'>
             {
               this.state.arr.map((item,index)=>{
                 return <View className='odl' key={index}>
@@ -66,7 +66,6 @@ export default class Index extends Component {
                         <View className='odt'>
                           <View className='oleft'>
                             <View className='oh3'>{item.name}</View>
-                            <View className='op'>{item.title}</View>
                             <View className='price'>￥{item.price}</View>
                           </View>
                           <View className='oright'>
@@ -78,14 +77,14 @@ export default class Index extends Component {
                       </View>
               })
             }
-          </View>
-          <View className="footer">
+          </ScrollView>
+        </View>
+        <View className="footer">
             <View className="oh3">总计 : {this.state.total} 条狗{this.state.money}  元 </View>
             <View className="op">
               <Button size='mini' type="primary">支付</Button>
             </View>
           </View>
-        </View>
       </View>
     )
   }

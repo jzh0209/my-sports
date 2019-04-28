@@ -78,13 +78,38 @@ export default class Index extends Component {
                     </View>
                     <View className="btn">
                       <Button size='mini' type="warn" onClick={this.collect.bind(this,item._id,item.like)}>{this.state.like}</Button>
-                      <Button size='mini' type="warn" onClick={this.shop.bind(this)}>加入购物车</Button>
+                      <Button size='mini' type="warn" onClick={this.shop.bind(this,item)}>加入购物车</Button>
                     </View>
                 </View>
           })
         }
       </View>
     )
+  }
+
+  //点击加入购物车
+  shop(item){
+    Taro.request({
+      url: 'http://localhost:3000/addData',
+      data: {
+        img:item.img,
+        title:item.title,
+        price:item.price
+      },
+      header: {'content-type':'application/json'},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: (result)=>{
+        console.log(result)
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
+
+    wx.navigateTo({
+      url: '/pages/shops/index'
+    })
   }
 
   //点击收藏
@@ -130,10 +155,5 @@ export default class Index extends Component {
     }
   }
 
-  //点击加入购物车
-  shop(){
-    wx.navigateTo({
-      url: '/pages/shops/index'
-    })
-  }
+  
 }

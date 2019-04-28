@@ -13,6 +13,8 @@ class App extends Component {
 
   config = {
     pages: [
+      'pages/addDog/index',
+      'pages/sign/index',
       'pages/index/index',
       'pages/shops/index',
       'pages/logs/index',
@@ -39,6 +41,12 @@ class App extends Component {
           text: "新品狗崽子",
           iconPath: "images/dog2.png",
           selectedIconPath: "images/dog2.png"
+        },
+        {
+          pagePath: "pages/sign/index",
+          text: "报名领养",
+          iconPath: "images/dog3.png",
+          selectedIconPath: "images/dog3.png"
         },
         {
           pagePath: "pages/child/index",
